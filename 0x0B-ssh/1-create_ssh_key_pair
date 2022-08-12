@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# stackoverflow:
+# -N "" tells it to use an empty passphrase
+# -f mykey tells it to store the key into mykey
+
+ssh-keygen -b 4096 -t rsa -N "betty" -f school
