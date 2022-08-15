@@ -5,3 +5,4 @@ Host 54.167.119.232
     PasswordAuthentication no
     BatchMode yes
     IdentityFile ~/.ssh/id_school
+    Port 22

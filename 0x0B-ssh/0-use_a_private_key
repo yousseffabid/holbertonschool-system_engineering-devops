@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# I used conf file inside ./ssh  to automaticcaly use 
-# the rsa key in the identity_file 'rsa_holberton'
-# if i did not do that i would have to add the flag 'i'
-# and the identity_file => ssh -i ~/.ssh/holberton ubuntu@
+# connecting to server with ssh using private key
 
-ssh ubuntu@54.167.119.232
+ssh -i ~/.ssh/school ubuntu@54.167.119.232
