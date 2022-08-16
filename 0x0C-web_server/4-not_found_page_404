@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# custom 404 page
+
+sudo apt-get update -y
+sudo apt-get -y install nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+
+sudo sed -i "s#server_name _;#server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=X_8Nh5XfRw0 permanent;#" /etc/nginx/sites-available/default
+
+sudo touch /var/www/html/page404.html && echo "Ceci n'est pas une page" | sudo tee "$_"
+sudo sed -i "s#server_name _;#server_name _;\n\terror_page 404 /page404.html;\n\tlocation = /page404.html {\n\troot /var/www/html/;\n\tinternal;\n}#" /etc/nginx/sites-available/default
+
+sudo service nginx start
