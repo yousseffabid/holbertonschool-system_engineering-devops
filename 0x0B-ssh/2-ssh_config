@@ -1,5 +1,5 @@
 #Holberton server
-Host 54.167.119.232
+Host 54.87.26.7
     User ubuntu 
     PasswordAuthentication no
     BatchMode yes
