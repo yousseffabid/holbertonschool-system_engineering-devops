@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # debugging
-sudo sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf
-sudo sed -i 's/<VirtualHost: *:80>/<VirtualHost: *:8080>/' /etc/apache2/sites-enabled/000-default.conf
-sudo service apache2 restart
+echo "ServerName localhost" >> /etc/apache2.conf
+service apache2 start
