@@ -5,8 +5,6 @@ sudo apt-get install --no-install-recommends software-properties-common -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.0 -y
 sudo apt-get install haproxy=2.0.\* -y
 
-sudo mv /etc/haproxy/haproxy.cfg{,.original}
-
 sudo sed -i "$ a frontend http_web\n\tbind *:80\n\tmode http\n\tdefault_backend my_backend\n" /etc/haproxy/haproxy.cfg
 sudo sed -i "$ a backend my_backend\n\tbalance roundrobin\n\tserver 4253-web-01 54.87.26.7:80 check\n\tserver 4253-web-02 34.227.226.141:80 check\n" /etc/haproxy/haproxy.cfg
 
