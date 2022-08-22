@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#add header x-served-by that tells the host name that sent the response
+sudo sed -i "/s#rewrite ^/redirect_me/$ https://www.youtube.com/watch?v=X_8Nh5XfRw0 permanent;#rewrite ^/redirect_me/$ https://www.youtube.com/watch?v=X_8Nh5XfRw0 permanent;\n\tadd_header X-Served-By $HOSTNAME;#" /etc/nginx/sites-available/default
+sudo service nginx restart
