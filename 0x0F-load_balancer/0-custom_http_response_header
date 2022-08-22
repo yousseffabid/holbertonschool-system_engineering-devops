@@ -3,5 +3,5 @@
 sudo apt-get update -y
 sudo apt-get install nginx -y
 echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
-sudo sed -i "s#server_name\ _;#server_name\ _;\n\tadd_header X-Served-By \$hostname;"
+sudo sed -i "s#server_name\ _;#server_name\ _;\n\tadd_header X-Served-By \$HOSTNAME;\n"
 sudo service nginx restart
