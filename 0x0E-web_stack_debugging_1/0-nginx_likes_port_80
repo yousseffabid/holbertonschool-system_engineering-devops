@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# fixing nginx
+sudo service nginx start
