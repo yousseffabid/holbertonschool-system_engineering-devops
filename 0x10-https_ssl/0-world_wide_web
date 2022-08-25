@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# dig the DNS records
+
+func () {
+	dig "$2.$1" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", SUBDOMAIN, $4, $5}' SUBDOMAIN="$i"
+}
+
+declare -a array=("www" "lb-01" "web-01" "web-02")
+
+for i in "${array[@]}"
+do
+	if [ "$2" == "$i" ]
+	then
+		func "$1" "$i"
+	fi
+	if [ -z "$2" ]
+	then
+		func "$1" "$i"
+	fi
+done
