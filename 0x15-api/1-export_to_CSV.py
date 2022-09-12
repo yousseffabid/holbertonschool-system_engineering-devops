@@ -15,8 +15,8 @@ if __name__ == "__main__":
 
     username = user.get('username')
 
-    with open('{}.csv'.format(argv[1]), 'w',  newline="") as f:
-        writer = csv.writer(f)
+    with open('{}.csv'.format(argv[1]), 'w') as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for task in todo_list:
             userid = argv[1]
             title = task.get('title')
