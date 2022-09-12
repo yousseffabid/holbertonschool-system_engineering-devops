@@ -23,7 +23,7 @@ if __name__ == "__main__":
             number_of_done_tasks += 1
             completed_tasks.append(todo_list[i].get('title'))
 
-    print('Employee {} is done with tasks ({}/{}) :'
+    print('Employee {} is done with tasks({}/{}):'
           .format(user_name, number_of_done_tasks, len(todo_list)))
 
     for i in range(len(completed_tasks)):
