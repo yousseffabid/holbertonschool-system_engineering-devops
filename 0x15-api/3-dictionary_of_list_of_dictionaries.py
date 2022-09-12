@@ -10,17 +10,17 @@ if __name__ == "__main__":
 
     users = requests.get(url + 'users').json()
 
-    list_of_dic = []
     result = {}
 
     for user in users:
         todo_list = requests.get(url + "todos",
                                  params={"userId": user.get("id")}).json()
+        list_of_dic = []
         for task in todo_list:
             list_of_dic.append({'username': user.get('username'),
                                 'task': task.get('title'),
                                 'completed': task.get('completed')})
-        result[user['id']] = list_of_dic
+        result[user.get('id')] = list_of_dic
 
     with open('todo_all_employees.json', 'w') as f:
         json.dump(result, f)
