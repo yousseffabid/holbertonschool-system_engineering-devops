@@ -11,7 +11,7 @@ def recurse(subreddit, hot_list=[], after=''):
     url = "https://www.reddit.com"
     url_endpoint = "/r/{}/hot.json?limit=100&after={}".format(subreddit, after)
 
-    req = requests.get("{}{}".format(url, urll_endpoint),
+    req = requests.get("{}{}".format(url, url_endpoint),
                            headers={'User-agent': 'Mozilla/5.0'},
                            allow_redirects=False)
 
